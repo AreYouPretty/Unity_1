@@ -31,12 +31,12 @@ public class RayShooter : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                StartCoroutine((string)SphereIndicator(hit.point));
+                StartCoroutine(SphereIndicator(hit.point));
             }
         }
     }
 
-    private IEnumerable SphereIndicator(Vector3 pos)
+    private IEnumerator SphereIndicator(Vector3 pos)
     {
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.transform.position = pos;
