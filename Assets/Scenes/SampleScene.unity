@@ -562,7 +562,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: -0.03515625, y: 0, z: 8, w: 8}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -891,6 +891,7 @@ GameObject:
   - component: {fileID: 1156848937}
   - component: {fileID: 1156848936}
   - component: {fileID: 1156848935}
+  - component: {fileID: 1156848940}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -983,6 +984,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1156848940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156848934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19f1af4dad1106459222a1d3a6a32c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  obstacleRange: 5
 --- !u!1 &1204036254
 GameObject:
   m_ObjectHideFlags: 0
