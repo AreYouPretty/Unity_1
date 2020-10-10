@@ -6,6 +6,13 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private Text scoreLabel;
+    [SerializeField] private SettingsPopup settingsPopup;
+
+    private void Start()
+    {
+        settingsPopup.Close();
+    }
+
     void Update()
     {
         scoreLabel.text = Time.realtimeSinceStartup.ToString();
