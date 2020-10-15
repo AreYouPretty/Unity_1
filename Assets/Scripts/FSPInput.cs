@@ -9,6 +9,7 @@ public class FSPInput : MonoBehaviour
 {
     public float speed = 6.0f;
     public float gravity = -9.8f;
+    public const float baseSpeed = 6.0f;
 
     private CharacterController _charController;
 
@@ -28,5 +29,20 @@ public class FSPInput : MonoBehaviour
         movement *= Time.deltaTime;
         movement = transform.TransformDirection(movement);
         _charController.Move(movement);
+    }
+
+    void Awake()
+    {
+        Messenger<float>.AddListener(GameEvent.SPEED_CHANGER, OnSpeedChanged);
+    }
+
+    void OnDestroy()
+    {
+        Messenger<float>.RemoveListener(GameEvent.SPEED_CHANGER, OnSpeedChanged);
+    }
+
+    private void OnSpeedChanged(float value)
+    {
+        speed = baseSpeed * value;
     }
 }
