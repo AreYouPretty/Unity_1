@@ -33,12 +33,12 @@ public class FSPInput : MonoBehaviour
 
     void Awake()
     {
-        Messenger<float>.AddListener(GameEvent.SPEED_CHANGER, OnSpeedChanged);
+        Messenger<float>.AddListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
     }
 
     void OnDestroy()
     {
-        Messenger<float>.RemoveListener(GameEvent.SPEED_CHANGER, OnSpeedChanged);
+        Messenger<float>.RemoveListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
     }
 
     private void OnSpeedChanged(float value)

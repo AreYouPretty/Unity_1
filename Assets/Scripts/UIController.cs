@@ -1,45 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private Text scoreLabel;
+	[SerializeField] private Text scoreLabel;
     [SerializeField] private SettingsPopup settingsPopup;
-    private int _score;
 
-    private void Start()
-    {
-        _score = 0;
-        scoreLabel.text = _score.ToString();
+	private int _score;
 
-        settingsPopup.Close();
-    }
+	void Awake()
+	{
+		Messenger.AddListener(GameEvent.ENEMY_HIT, OnEnemyHit);
+	}
+	void OnDestroy()
+	{
+		Messenger.RemoveListener(GameEvent.ENEMY_HIT, OnEnemyHit);
+	}
 
-    public void OnOpenSettings()
-    {
-        Debug.Log("open settings");
-    }
+	void Start()
+	{
+		_score = 0;
+		scoreLabel.text = _score.ToString();
 
-    public void OnPointerDown()
-    {
-        Debug.Log("pointer down");
-    }
+		settingsPopup.Close();
+	}
 
-    private void Awake()
-    {
-        Messenger.AddListener(GameEvent.ENEMY_HIT, OnEnemyHit);
-    }
+	private void OnEnemyHit()
+	{
+		_score += 1;
+		scoreLabel.text = _score.ToString();
+	}
 
-    private void OnDestroy()
-    {
-        Messenger.RemoveListener(GameEvent.ENEMY_HIT, OnEnemyHit);
-    }
+	public void OnOpenSettings()
+	{
+        settingsPopup.Open();
+	}
 
-    private void OnEnemyHit()
-    {
-        _score += 1;
-        scoreLabel.text = _score.ToString();
-    }
+	public void OnPointerDown()
+	{
+		Debug.Log("pointer down");
+	}
 }
