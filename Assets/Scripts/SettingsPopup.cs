@@ -10,11 +10,10 @@ public class SettingsPopup : MonoBehaviour
 	{
 		speedSlider.value = PlayerPrefs.GetFloat("speed", 1);
 	}
-
 	public void Open()
-	{
+    {
 		gameObject.SetActive(true);
-	}
+    }
 	public void Close()
 	{
 		gameObject.SetActive(false);

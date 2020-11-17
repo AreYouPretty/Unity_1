@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
 
 public class UIController : MonoBehaviour
 {
 	[SerializeField] private Text scoreLabel;
-    [SerializeField] private SettingsPopup settingsPopup;
+	[SerializeField] private SettingsPopup settingsPopup;
 
 	private int _score;
 
@@ -32,12 +31,10 @@ public class UIController : MonoBehaviour
 		_score += 1;
 		scoreLabel.text = _score.ToString();
 	}
-
 	public void OnOpenSettings()
 	{
-        settingsPopup.Open();
+		settingsPopup.Open();
 	}
-
 	public void OnPointerDown()
 	{
 		Debug.Log("pointer down");
